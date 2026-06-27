@@ -1,0 +1,42 @@
+# Основной запрос, по которому ты взял ссылки из ТОПа Google
+query: ""
+
+# Язык финального SEO-ТЗ: ru, uk, en
+language: "ru"
+
+# Регион нужен для отчёта
+region: "Украина"
+
+# Ссылки из органического ТОПа Google.
+# Лучше передавать 5-10 URL в порядке позиций.
+urls:
+  - ""
+
+google_sheets:
+  enabled: false
+  service_account_json: "service-account.json"
+  spreadsheet_url: ""
+  create_title: "SEO Article Analyzer Report"
+  share_with_email: ""
+
+local_export:
+  xlsx_path: "output/seo_article_report.xlsx"
+
+fetch:
+  timeout: 20
+  delay_seconds: 1
+  user_agent: "Mozilla/5.0 SEOArticleAnalyzer/4.0"
+
+analysis:
+  max_keywords: 120
+  max_clean_core: 60
+  max_questions: 50
+  max_questions_per_url: 4
+  min_phrase_length: 2
+  max_phrase_length: 4
+
+  # Если language: ru, английские FAQ будут отбрасываться.
+  reject_foreign_faq: true
+
+  # Снижает влияние Википедии и других энциклопедических страниц на финальное ядро.
+  reduce_wikipedia_weight: true
